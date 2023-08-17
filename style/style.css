@@ -1,0 +1,300 @@
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+ * {
+     margin: 0;
+     padding: 0;
+     outline: none;
+     list-style: none;
+     text-decoration: none;
+     box-sizing: border-box;
+     font-family: 'Roboto', sans-serif;
+ }
+
+ :root {
+     color-scheme: dark light;
+
+     --blue_uni_clr: rgb(20, 168, 237);
+     --blue_uni_hover_clr: rgb(0, 132, 193);
+     --yellow_uni_clr: peru;
+     --yellow_uni__hover__clr: rgb(242, 153, 65);
+     --secondary--clr: rgb(186, 197, 207);
+
+     --margin__sm: .7em;
+     --margin__md: calc(var(--margin__sm) * 2);
+     --margin__lrg: calc(var(--margin__sm) * 3);
+
+     --padding__sm: 0.6em;
+     --padding__md: calc(var(--padding__sm) * 2);
+     --padding__lrg: calc(var(--padding__sm) * 3);
+
+     --bdr-rads:5px;
+ }
+
+
+ @media (prefers-color-scheme: light) {
+     :root {
+         --primary__clr: white;
+         --primary__hover__clr: rgb(0, 0, 0);
+     }
+
+     .aside__dashboard__image {
+         filter: invert(1);
+     }
+ }
+
+
+ @media (prefers-color-scheme: dark) {
+     :root {
+         --primary__clr: black;
+         --primary__hover__clr: rgb(255, 255, 255);
+
+     }
+ }
+
+ button {
+     padding: .7rem;
+     border-radius: 20px;
+     background-color: var(--yellow_uni_clr);
+     border: none;
+     font-size: 18px;
+     cursor: pointer;
+     color: var(--primary__clr);
+     transition: all .5s;
+ }
+
+ button:hover {
+     background-color: var(--yellow_uni__hover__clr);
+     color: black;
+ }
+
+ .Heading{
+    margin:var(--margin__sm) var(--margin__md);
+}
+
+ /* =================================== Aside Section ============================= */
+ .main__dashboard__container {
+     display: grid;
+     grid-template-rows: 1fr 5fr;
+     grid-template-columns: 1fr 6fr 2.5fr;
+     grid-template-areas:
+         "two one one"
+         "two three four"
+ }
+
+ nav {
+     grid-area: one;
+     background-color: var(--primary__clr);
+     border-bottom: 5px solid rgba(128, 128, 128, 0.617);
+ }
+
+ aside {
+     grid-area: two;
+
+     padding: var(--padding__md) 0px;
+     background-color: var(--blue_uni_clr);
+     color: var(--primary__clr);
+ }
+
+ main {
+     grid-area: three;
+     background-color: var(--secondary--clr);
+ }
+
+ section {
+     grid-area: four;
+     display: grid;
+     grid-template-rows: 1.5fr 1fr;
+     background-color: var(--secondary--clr);
+     padding-right: var(--padding__md);
+ }
+
+ .aside__header {
+     display: flex;
+     align-items: center;
+     margin: var(--margin__lrg) var(--margin__md);
+     font-weight: 700;
+     color: var(--primary__hover__clr);
+ }
+
+ .aside__section {
+     margin: 1.5rem 0;
+ }
+
+ .aside__dashboard__image {
+     width: 1.6rem;
+     aspect-ratio: 1;
+ }
+
+ .aside__header__text {
+
+     margin-left: var(--margin__sm);
+ }
+
+ .aside__profile__links {
+     display: flex;
+     align-items: center;
+     color: var(--primary__clr);
+     padding: var(--padding__sm) var(--padding__md);
+     transition: all .5s;
+ }
+
+ .aside__profile__links:hover {
+     color: var(--primary__hover__clr);
+     background-color: var(--blue_uni_hover_clr);
+ }
+
+
+ .aside__links--text {
+     margin-left: var(--margin__md);
+ }
+
+ @media screen and (max-width: 41rem) {
+
+     .aside__links--text,
+     .aside__header__text,
+     .aside__profile__container {
+         display: none;
+     }
+
+
+     .aside__links--logo {
+         margin: 0;
+     }
+
+ }
+
+ /* ==================================NavBar=============================== */
+
+ .nav__top__row,
+ .nav_small_profile,
+ .nav__bottom__row,
+ .nav_large_profile {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .nav__top__row,
+ .nav__bottom__row {
+     padding: var(--padding__sm) var(--padding__md);
+ }
+
+ .top__row--search {
+     width: 60%;
+ }
+
+ .search__input {
+     padding: 5px .5rem;
+     border-radius: 15px;
+     margin: 0 var(--margin__sm);
+     width: 80%;
+     background-color: var(--secondary--clr);
+ }
+
+ .nav_small_profile--img,
+ .nav_small_profile--img>img {
+     height: 40px;
+     aspect-ratio: 1;
+     border-radius: 50%;
+ }
+
+ .nav_small_profile {
+     cursor: pointer;
+ }
+
+ .nav_small_profile--img {
+     margin: 0 var(--margin__sm);
+ }
+
+ .aside__profile__container {
+     position: relative;
+     height: 5rem;
+     aspect-ratio: 1;
+     border-radius: 50%;
+     text-align: center;
+ }
+
+ .aside__profile__img {
+     height: inherit;
+     aspect-ratio: 1;
+     border-radius: 50%;
+ }
+
+ .overlay {
+     position: absolute;
+     top: 0px;
+     bottom: 0px;
+     left: 0px;
+     right: 0px;
+     background-color: rgba(0, 132, 193, 0.709);
+     opacity: 0;
+     transition: .5s ease;
+     border-radius: 50%;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .aside__profile__container:hover .overlay {
+     opacity: 1;
+ }
+
+ .nav_large_profile--text {
+     margin: 0px var(--margin__sm);
+ }
+
+
+
+ /* ===================================================================================== */
+
+
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 var(--padding__md);
+        gap: 1.5em;
+    }
+
+ .card {
+     padding: var(--padding__md) var(--padding__sm);
+     border-left: 5px solid var(--yellow_uni_clr);
+     border-radius: var(--bdr-rads);
+     background-color: var(--primary__clr);
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+
+ }
+
+ .card__svgs {
+     display: flex;
+     justify-content: flex-end;
+ }
+
+ .card__svg>svg {
+     margin: var(--margin__sm);
+     cursor: pointer;
+ }
+
+ /* ======================================================================================= */
+
+.all__announcements,
+.all__trendings{
+    background-color: var(--primary__clr);
+    padding: var(--padding__lrg);
+    border-radius: var(--bdr-rads);
+}
+hr{
+    margin: var(--margin__md) var(--margin__sm);
+}
+
+.trending{
+    margin-block: var(--margin__md);
+    display: flex;
+}
+
+.trending__user__info{
+    margin-left: var(--margin__md);
+}
